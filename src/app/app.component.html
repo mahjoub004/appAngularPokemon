@@ -1,2 +1,12 @@
-{{title[1]}}
+<h1>Liste de Pokémons : indequer le numero de pokemon qui vous voulez</h1>
+
+<!-- <p (click)="selectPokemon(ListPokemons[1])">
+  {{ListPokemons[1].name}}</p> -->
+
+<input type="number"
+#input
+(keyup)="selectPokemon(input.value)"/>
+<p> {{ pokemonSelected?.name  }}</p>
+
+
 <router-outlet></router-outlet>
