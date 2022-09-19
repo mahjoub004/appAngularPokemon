@@ -1,12 +1,44 @@
-<h1>Liste de Pokémons : indequer le numero de pokemon qui vous voulez</h1>
-
 <!-- <p (click)="selectPokemon(ListPokemons[1])">
   {{ListPokemons[1].name}}</p> -->
 
-<input type="number"
+<!-- <input type="number"
 #input
-(keyup)="selectPokemon(input.value)"/>
-<p> {{ pokemonSelected?.name  }}</p>
+(keyup.enter)="selectPokemon(input.value)"/>
+<p *ngIf="pokemonSelected">  vous avez sélectionné le pokemon{{ pokemonSelected?.name  }}</p>
+<p *ngIf="!pokemonSelected">  Aucun Pokémon n'a été sélectionné </p>
+<p *ngFor="let pokemon of ListPokemons">
+  {{pokemon.name}}
+  <img src="{{ pokemon.picture}}" alt="" srcset="">
+</p> -->
+
+<h1 class="center"> Liste de pokemons</h1>
+
+<div class="container">
+  <div class="row">
+
+    <div *ngFor=" let pokemon of ListPokemons" class="col m4 s6">
+
+      <div class="card horizental">
+        <div class="card-image"> <img [src]="pokemon.picture" alt="" srcset=""> </div>
+
+        <div class="card-stacked">
+          <div class="card-content">
+            <p> name: {{pokemon.name}}</p>
+            <p> hp: {{pokemon.hp}}</p>
+            <p> cp: {{pokemon.cp}}</p>
+            <p> type: {{pokemon.types}}</p>
+            <p><small>{{pokemon.created}}</small></p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
 
 
 <router-outlet></router-outlet>
