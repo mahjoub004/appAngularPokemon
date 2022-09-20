@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { POKEMONS } from 'src/app/mock-pokemon-list';
 import { Pokemon } from 'src/app/pokemon';
 
@@ -13,7 +13,7 @@ export class DetailPokemonComponent implements OnInit {
   listPokemon: Pokemon[]; // ma liste de pokemon
   pokemon: Pokemon | undefined; // pokemon courant
 
-  constructor( private route: ActivatedRoute) { } // avec < ActivatedRoute > rendre la service route disponible dans le composent
+  constructor( private route: ActivatedRoute , private router: Router) { } // avec < ActivatedRoute > rendre la service route disponible dans le composent
 
   ngOnInit()  {
     this.listPokemon = POKEMONS; // lier la liste pokemon
@@ -24,6 +24,9 @@ export class DetailPokemonComponent implements OnInit {
       }else{
         this.pokemon = undefined ;
       }
+  }
+  goToPokemonList(){
+    this.router.navigate(['/pokemons'])
   }
 
 }
