@@ -18,22 +18,22 @@
 
     <div *ngFor=" let pokemon of ListPokemons" class="col m4 s6">
 
-      <div class="card horizental">
+      <div class="card horizental "pokemonBorderCard (click)="selectPokemon">
         <div class="card-image"> <img [src]="pokemon.picture" alt="" srcset=""> </div>
 
         <div class="card-stacked">
           <div class="card-content">
             <p> name: {{pokemon.name}}</p>
-            <p> hp: {{pokemon.hp}}</p>
-            <p> cp: {{pokemon.cp}}</p>
+            <p> hp:   {{pokemon.hp}}</p>
+            <p> cp:   {{pokemon.cp}}</p>
             <p> type: {{pokemon.types}}</p>
-            <p><small>{{pokemon.created}}</small></p>
+            <p><small>{{pokemon.created | date :"dd/MM/YYYY"}}</small></p>
+            <span *ngFor="let type of pokemon.types" class="{{ type | pokemonTypeColor}}">
+              {{type}}
+            </span>
           </div>
         </div>
       </div>
-
-
-
     </div>
 
   </div>
