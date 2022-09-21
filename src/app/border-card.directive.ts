@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener, Input, } from '@angular/core';
   selector: '[pokemonBorderCard]'
 })
 export class BorderCardDirective {
-  private initailColor: string = '#f5f5f5';
+  private initialColor: string = '#f5f5f5';
   private defaultColor: string = '#009688';
   private defaultHeight: number = 450 ;
 
@@ -18,11 +18,12 @@ export class BorderCardDirective {
 @Input('pokemonBorderCard') borderColor: string; //créer un directive personalisé
 
 
-@HostListener('mouseenter') onMouseEnter(){
+@HostListener('mouseenter') onMouseEnter(){ //Décorateur qui déclare un événement DOM à écouter et
+                                            //fournit une méthode de gestionnaire à exécuter lorsque cet événement se produit.
   this.setBorder(this.borderColor || this.defaultColor)
 }
 @HostListener('mouseleave') onMouseLeave(){
-this.setBorder(this.initailColor);
+this.setBorder(this.initialColor);
 }
 
 
